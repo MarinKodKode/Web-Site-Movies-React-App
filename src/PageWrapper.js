@@ -1,11 +1,5 @@
-import logo from './logo.svg';
-import './App.css';
-import Pelicula from './Pelicula';
-
-function App() {
-
-  return (
-    <div>
+export default function PageWrapper(){
+    return(<div>
 
 <div id="preloader">
     <img className="logo" src="images/logo1.png" alt="" width="119" height="58"/>
@@ -429,5 +423,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
