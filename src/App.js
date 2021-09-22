@@ -12,6 +12,25 @@ function App() {
 
 	let movies = MoviesJSON;
 
+	// Pulling data from servers
+	const buscarPelicula = async() =>{
+		//let url = "https://cors-anywhere.herokuapp.com/https://lucasmoy.dev/data/react/peliculas.json";
+		let url = "https://raw.githubusercontent.com/lucasmoy-dev/Curso-de-React/main/Proyecto%202%20-%20Web%20de%20Peliculas/Proyecto%20Terminado/src/peliculas.json";
+
+		let respuesta = await fetch(url,{
+			"method" : 'GET',
+			"headers" : {
+				"Accept" : 'application/json',
+				"Content-Type" : 'application/json',
+				"Origin" : 'https://lucasmoy.dev/data/react/peliculas.json'
+			}
+		});
+		let json = await respuesta.json();
+		alert(json);
+	}
+
+	buscarPelicula();
+
 	const cargarPeliculas = () =>{
 		movies = movies.slice(
 		(paginaActual - 1) * TOTAL_POR_PAGINA, 
@@ -26,6 +45,7 @@ function App() {
 	}
 
   
+	
 	cargarPeliculas();
   
 	return(
